@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react"
-import io from "socket.io-client"
+// import { useState, useEffect } from "react"
+// import io from "socket.io-client"
 
 
 
-const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("http://localhost:3001")
 
-function PinNumber (){
+// function PinNumber (){
 
-    const [room, setRoom]=useState((Math.floor(1000 + Math.random() * 9000)))
+//     const [room, setRoom]=useState((Math.floor(1000 + Math.random() * 9000)))
 
     
-    console.log(room)
+//     console.log(room)
    
   
-    useEffect(()=>{
-        socket.emit("join_room", room)
-        console.log(`joined room : ${room}`) 
-    }, [])
+//     useEffect(()=>{
+//         socket.emit("join_room", room)
+//         console.log(`joined room : ${room}`) 
+//     }, [])
 
 
-    return (
-        <div>
-        <div>{room}</div>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//         <div>{room}</div>
+//         </div>
+//     )
+// }
 
-export default PinNumber
+// export default PinNumber

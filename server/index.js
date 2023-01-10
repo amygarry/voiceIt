@@ -23,7 +23,7 @@ io.on("connection", (socket)=>{
     })
    
     socket.on("send_question", (data)=>{
-        socket.broadcast.emit("recieve_question", data)
+        socket.to(data.pin).emit("recieve_question", data)
     })
 
 })

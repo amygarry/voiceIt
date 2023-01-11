@@ -3,7 +3,7 @@ import io from "socket.io-client"
 import MainQuestion from "../components/presentorcomponents/MainQuestion"
 import ChatterBox from "../components/presentorcomponents/ChatterBox"
 
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("http://localhost:3021")
 
 
 function PresenterScreen (){

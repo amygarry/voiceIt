@@ -1,7 +1,7 @@
 import Question from "./Question"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import io from "socket.io-client"
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("http://localhost:3021")
 
 
 function EnterPin (){
@@ -17,9 +17,9 @@ function EnterPin (){
     useEffect(()=>{
         socket.on("recieve_question", (data)=>{
             setQuestionRecieved(data)
-            console.log(data)
+            console.log("got here")
         })
-       }, [socket])
+       }, [])
 
     return (
         <div>

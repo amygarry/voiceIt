@@ -5,19 +5,21 @@ const socket = io.connect("http://localhost:3001")
 
 function Question ({pin}){
 
-    const [questionRecieved, setQuestionRecieved]= useState()
+    const [questionRecieved, setQuestionRecieved]= useState("Hello")
 
+    useEffect(()=>{
+        socket.on("recieve_question", (data)=>{
+            setQuestionRecieved(data)
+            console.log(data)
+        })
+       }, [socket])
+       
     useEffect(()=>{
         socket.emit("join_room", pin)
         console.log(`audience joined question in this room : ${pin}`) 
     }, [])
 
-    useEffect(()=>{
-        socket.on("recieve_question", (data)=>{
-            setQuestionRecieved(data.question)
-            console.log(data.question)
-        })
-       }, [socket])
+
 
     return (
         <div>

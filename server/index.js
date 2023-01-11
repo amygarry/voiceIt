@@ -18,12 +18,14 @@ const io = new Server(server, {
 io.on("connection", (socket)=>{
     console.log(`user connected: ${socket.id}`)
 
-    socket.on("join_chatterBox", (data)=>{
+    socket.on("join_room", (data)=>{
         socket.join(data)
+        console.log(`${data}`)
     })
    
     socket.on("send_question", (data)=>{
-        socket.to(data.pin).emit("recieve_question", data)
+        socket.to(data.pin).emit("recieve_question", data.question)
+        console.log(`data.pin is ${data.pin} this is the info ${data.question}`)
     })
 
 })

@@ -14,12 +14,14 @@ function EnterPin (){
         console.log(`audience joined room: ${room}`)
     }
 
-    useEffect(()=>{
-        socket.on("recieve_question", (data)=>{
-            setQuestionRecieved(data)
-            console.log("got here")
-        })
-       }, [])
+    // useEffect(()=>{
+    //     socket.on("recieve_question", (data)=>{
+    //         setQuestionRecieved(data)
+    //         console.log("got here")
+    //     })
+    //    }, [])
+
+ 
 
     return (
         <div>

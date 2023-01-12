@@ -19,10 +19,10 @@ function Question ({pin}){
         })
        }, [socket])
        
-    useEffect(()=>{
-        socket.emit("join_room", pin)
-        console.log(`audience joined question in this room : ${pin}`) 
-    }, [])
+    // useEffect(()=>{
+    //     socket.emit("join_room", pin)
+    //     console.log(`audience joined question in this room : ${pin}`) 
+    // }, [])
 
 
 

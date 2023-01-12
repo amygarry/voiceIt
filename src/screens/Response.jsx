@@ -6,6 +6,7 @@ function ResponseScreen (){
         <div>
         <h1>VoiceIt</h1>
         <EnterPin/>
+        <Question/>
         </div>
         
     )

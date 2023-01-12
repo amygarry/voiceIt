@@ -4,7 +4,6 @@ import AuthContext from '../store/authContext'
  
 const SignIn = () => {
    const [username, setUsername] = useState('')
-   const [email, setEmail]= useState('')
    const [password, setPassword] = useState('')
    const [register, setRegister] = useState(true)
 
@@ -15,23 +14,25 @@ const SignIn = () => {
        e.preventDefault()
        const body = {
         username,
-        email,
         password
     }
+
+    console.log(body)
 
     const url = 'http://localhost:3021'
 
     axios.post(register ? `${url}/register` : `${url}/login`, body)
         .then((res) => {
-            // console.log('AFTER AUTH', res.data)
+            console.log('AFTER AUTH', res.data)
             authCtx.login(res.data.token, res.data.exp, res.data.userId)
             
         })
         .catch(err => {
             setPassword('')
             setUsername('')
+            console.log(err)
         })
-    //    console.log('submitHandler called')
+       console.log('submitHandler called')
 
     
    }

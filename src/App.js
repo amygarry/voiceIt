@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useContext } from 'react';
 import AuthContext from './store/authContext';
 
@@ -17,9 +17,9 @@ function App() {
     <div className="App">
      <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/present' element={<PresenterScreen/>}/>
+        <Route path='/present' element={authCtx.token ? <PresenterScreen/>: <Navigate to="/login"/>}/>
         <Route path='/respond' element ={<ResponseScreen/>}/>
-        <Route path='/login' element ={<SignIn/>}/>
+        <Route path='/login' element ={!authCtx.token ? <SignIn/> : <Navigate to='/present'/>}/>
      </Routes>
     </div>
   );

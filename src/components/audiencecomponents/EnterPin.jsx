@@ -28,8 +28,7 @@ function EnterPin (){
             <p>Enter the pin</p>
             <input type="text" placeholder="pin" onChange={(event)=>setRoom(event.target.value)}/>
             <button onClick={joinRoom}>Enter</button><br></br>
-           {questionRecieved}
-            {/* <Question pin={room}/> */}
+            <Question pin={room}/>
         </div>
         </div>
         

@@ -7,6 +7,11 @@ function Question ({pin}){
 
     const [questionRecieved, setQuestionRecieved]= useState("Hello")
 
+    useEffect( ()=>{
+        socket.emit("join_room", pin)
+        console.log(`question joined room: ${pin}`)
+    },[])
+
     useEffect(()=>{
         socket.on("recieve_question", (data)=>{
             setQuestionRecieved(data)

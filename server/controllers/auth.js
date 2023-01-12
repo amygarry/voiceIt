@@ -23,6 +23,7 @@ function createToken (username, id){
 module.exports = {
     register: async (req, res) => {
        try { 
+        console.log(req.body)
         const {username, password} = req.body
         let foundUser = await User.findOne({where: {username:username}})
 

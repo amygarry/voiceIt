@@ -1,4 +1,3 @@
-import Question from "./Question"
 import { useState, useEffect, useRef } from "react"
 import io from "socket.io-client"
 const socket = io.connect("http://localhost:3021")
@@ -14,12 +13,12 @@ function EnterPin (){
         console.log(`audience joined room: ${room}`)
     }
 
-    // useEffect(()=>{
-    //     socket.on("recieve_question", (data)=>{
-    //         setQuestionRecieved(data)
-    //         console.log("got here")
-    //     })
-    //    }, [])
+    useEffect(()=>{
+        socket.on("recieve_question", (data)=>{
+            setQuestionRecieved(data)
+            console.log("got here")
+        })
+       }, [])
 
  
 
@@ -30,7 +29,7 @@ function EnterPin (){
             <p>Enter the pin</p>
             <input type="text" placeholder="pin" onChange={(event)=>setRoom(event.target.value)}/>
             <button onClick={joinRoom}>Enter</button><br></br>
-            <Question pin={room}/>
+            {questionRecieved}
         </div>
         </div>
         

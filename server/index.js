@@ -31,6 +31,11 @@ io.on("connection", (socket)=>{
         console.log(`data.pin is ${data.pin} this is the info ${data.question}`)
     })
 
+    socket.on("send_audio", (data)=>{
+        socket.to(+data.room).emit("recieve_audio", data.audio)
+        console.log(`data.room is ${data.room} this is the info ${data.audio}`)
+    })
+
 })
 const {register, login} = require('./controllers/auth')
 const {isAuthenticated} = require('./middleware/isAuthenticated')

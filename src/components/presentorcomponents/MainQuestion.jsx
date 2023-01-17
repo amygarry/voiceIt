@@ -20,7 +20,7 @@ const [question, setQuestion]= useState("asdf")
  
     return (
     
-        <input placeholder="Type your question here e.g. Got Milk" onChange={sendQuestion}/> 
+        <input placeholder="Type your question here e.g. Got Milk" onChange={sendQuestion} className="enter-pin question"/> 
     )
 }
 

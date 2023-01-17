@@ -58,26 +58,28 @@ const SignIn = () => {
     }
 
    return (
-       <main>
-           <h1>Welcome!</h1>
+       <main className='home-page'>
+           <h1>VoiceIt</h1>
+           <div className='response-boxes'>
            <form className='form auth-form' onSubmit={submitHandler}>
                <input
-                   className='form-input'
+                   className='enter-pin'
                    type='text'
                    placeholder='username'
                    value={username}
                    onChange={usernameUpdate} />
                <input
-                   className='form-input'
+                   className='enter-pin'
                    type='text'
                    placeholder='password'
                    value={password}
                    onChange={passwordUpdate} />
-               <button className='form-btn'>
+               <button className='enter-pin'>
                    {register ? 'Sign Up' : 'Login'}
                </button>
            </form>
-           <button className='form-btn'
+           </div>
+           <button className='enter-pin'
            onClick={registerUpdate}>Need to {register ? 'Login' : 'Sign Up'}?</button>
        </main>
    )

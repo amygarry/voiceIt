@@ -15,18 +15,20 @@ function ChatterBox ({pin}){
     useEffect(()=>{ socket.on("recieve_audio", (data)=>{
         console.log("got here")
         console.log(data)
+        // FileReader.prototype.readAsArrayBuffer(data)
         setRecordings([...recordings,data])
-})},[socket])
+        console.log(recordings)
+})},[recordings])
 
-console.log(recordings)
 
-// let recordingsDisplay = recordings.map(audio=>{<audio controls  src={audio}/>})
-let recordingsDisplay = recordings.map(x=>{<h4>x</h4>})
+
+
+let recordingsDisplay = recordings.map(audio=>{return <audio controls src={audio} className="chatterbox-audio"/>})
 
     return (
         <div>
-            <h2>ChatterBox</h2>
-            {recordingsDisplay}
+            <h1>ChatterBox</h1>
+            <div className="chatter-box">{recordingsDisplay}</div>
         </div>
     )
 }

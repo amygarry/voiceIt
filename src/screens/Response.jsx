@@ -24,15 +24,16 @@ function ResponseScreen (){
  
 
     return (
-        <div>
+        <div className="response-page">
         <h1>VoiceIt</h1>
-        <div>
-            <p>Enter the pin</p>
-            <input type="text" placeholder="pin" onChange={(event)=>setRoom(event.target.value)}/>
-            <button onClick={joinRoom}>Enter</button><br></br>
-            {questionRecieved}
+        <div className="response-boxes">
+            <p>Join the Chatter Box</p>
+            <input type="text" placeholder="Pin" onChange={(event)=>setRoom(event.target.value)} className="enter-pin"/>
+            <button onClick={joinRoom} className="enter-pin enter">Enter</button><br></br>
+            </div>
+            <div className="response-boxes">{questionRecieved}</div>
             <AudioRecorder room={room}/>
-        </div>
+        
         </div>
         
     )

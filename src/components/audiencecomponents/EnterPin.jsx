@@ -24,8 +24,8 @@ function EnterPin (){
 
     return (
         <div>
-        <h1>VoiceIt</h1>
-        <div>
+        <h1 className="cool">VoiceIt</h1>
+        <div className="small-box">
             <p>Enter the pin</p>
             <input type="text" placeholder="pin" onChange={(event)=>setRoom(event.target.value)}/>
             <button onClick={joinRoom}>Enter</button><br></br>

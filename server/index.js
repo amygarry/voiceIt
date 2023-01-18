@@ -5,9 +5,12 @@ const {SERVER_PORT}= process.env
 const http = require("http")
 const cors = require('cors')
 const {sequelize} = require('./util/database')
+const path = require("path")
 
 app.use(cors())
 app.use(express.json())
+
+app.use(express.static(path.resolve(__dirname, "../build")))
 
 const server = http.createServer(app)
 
@@ -43,12 +46,18 @@ const {isAuthenticated} = require('./middleware/isAuthenticated')
 app.post('/register', register)
 app.post('/login', login)
 
+app.get("/", function(req, res){
+    res.sendFile(path.join(__dirname, "../build", 'index.html'))
+})
+
 sequelize.sync()
 .then(() => {
     app.listen(SERVER_PORT, () => console.log(`db sync successful & server running on port ${SERVER_PORT}`))
 })
 .catch(err => console.log(err))
 
-server.listen(3021 , ()=>{
+const {PORT}=process.env
+
+server.listen(PORT, ()=>{
     console.log("server is running now yahoo!")
 })

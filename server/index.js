@@ -1,11 +1,11 @@
 const express = require ('express')
 const app= express()
 const { Server } = require ('socket.io')
+const {SERVER_PORT}= process.env
 const http = require("http")
 const cors = require('cors')
 const {sequelize} = require('./util/database')
 const path = require("path")
-const {PORT}=process.env
 
 app.use(cors())
 app.use(express.json())
@@ -50,12 +50,13 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../build", 'index.html'))
 })
 
-// sequelize.sync()
-// .then(() => {
-//     app.listen(PORT, () => console.log(`db sync successful & server running on port ${PORT}`))
-// })
-// .catch(err => console.log(err))
+sequelize.sync()
+.then(() => {
+    app.listen(SERVER_PORT, () => console.log(`db sync successful & server running on port ${SERVER_PORT}`))
+})
+.catch(err => console.log(err))
 
+const {PORT}=process.env
 
 server.listen(PORT, ()=>{
     console.log("server is running now yahoo!")

@@ -50,11 +50,11 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../build", 'index.html'))
 })
 
-sequelize.sync()
-.then(() => {
-    app.listen(PORT, () => console.log(`db sync successful & server running on port ${PORT}`))
-})
-.catch(err => console.log(err))
+// sequelize.sync()
+// .then(() => {
+//     app.listen(PORT, () => console.log(`db sync successful & server running on port ${PORT}`))
+// })
+// .catch(err => console.log(err))
 
 
 server.listen(PORT, ()=>{

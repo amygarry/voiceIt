@@ -19,7 +19,7 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket)=>{
-    console.log(`user connected: ${socket.id}`)
+    // console.log(`user connected: ${socket.id}`)
 
     socket.on("join_room", (data)=>{
         socket.join(+data)
@@ -28,12 +28,12 @@ io.on("connection", (socket)=>{
    
     socket.on("send_question", (data)=>{
         socket.to(data.pin).emit("recieve_question", data.question)
-        console.log(`data.pin is ${data.pin} this is the info ${data.question}`)
+        // console.log(`data.pin is ${data.pin} this is the info ${data.question}`)
     })
 
     socket.on("send_audio", (data)=>{
-        socket.to(+data.room).emit("recieve_audio", data.audio)
-        console.log(`data.room is ${data.room} this is the info ${data.audio}`)
+        socket.to(+data.room).emit("recieve_audio", data.url)
+        console.log(data.url)
     })
 
 })

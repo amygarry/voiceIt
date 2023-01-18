@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import io from "socket.io-client"
 import AudioRecorder from "../components/audiencecomponents/AudioRecording"
 
-const socket = io.connect("http://localhost:3021")
+const socket = io.connect("https://voice-it.herokuapp.com")
 
 
 function ResponseScreen (){

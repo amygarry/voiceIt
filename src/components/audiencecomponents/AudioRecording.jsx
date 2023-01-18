@@ -6,7 +6,7 @@ import MicRecorder from 'mic-recorder-to-mp3'
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 import storage from "../../firebaseConfig";
 
-const socket = io.connect("http://localhost:3021")
+const socket = io.connect("https://voice-it.herokuapp.com/")
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 

@@ -1,7 +1,7 @@
 import io from "socket.io-client"
 import { useState, useEffect } from "react"
 
-const socket = io.connect("https://voice-it.herokuapp.com")
+const socket = io.connect("http://localhost:3021")
 
 function MainQuestion ({pin}){
 

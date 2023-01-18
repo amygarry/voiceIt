@@ -19,7 +19,7 @@ const SignIn = () => {
 
     console.log(body)
 
-    const url = 'https://voice-it.herokuapp.com'
+    const url = 'http://localhost:3021'
 
     axios.post(register ? `${url}/register` : `${url}/login`, body)
         .then((res) => {

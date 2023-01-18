@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import io from "socket.io-client"
 import BlobPlayer from "./BlobPlayer"
 
-const socket = io.connect("https://voice-it.herokuapp.com")
+const socket = io.connect("http://localhost:3021")
 
 function ChatterBox ({pin}){
 

@@ -4,7 +4,7 @@ import MainQuestion from "../components/presentorcomponents/MainQuestion"
 import ChatterBox from "../components/presentorcomponents/ChatterBox"
 import AuthContext from '../store/authContext'
 
-const socket = io.connect("https://voice-it.herokuapp.com/")
+const socket = io.connect("https://voice-it.herokuapp.com")
 
 
 function PresenterScreen (){

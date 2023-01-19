@@ -9,8 +9,10 @@ function EnterPin (){
     const [questionRecieved, setQuestionRecieved]= useState("Hello")
 
     const joinRoom = ()=>{
+        if(room){
         socket.emit("join_room", room)
         console.log(`audience joined room: ${room}`)
+        }
     }
 
     useEffect(()=>{

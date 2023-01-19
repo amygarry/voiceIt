@@ -6,7 +6,7 @@ import MicRecorder from 'mic-recorder-to-mp3'
 import { uploadBytes, getDownloadURL, ref } from "firebase/storage";
 import storage from "../../firebaseConfig";
 
-const socket = io.connect("https://voice-it.herokuapp.com/")
+const socket = io.connect("https://voice-it.herokuapp.com")
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -16,6 +16,7 @@ const AudioRecorder = ({room}) => {
   const [isRecording, setIsRecording] = useState(false)
   const [blob, setblob] = useState("")
   const [isBlocked, setIsBlocked] = useState(false)
+  const [reset, setReset]=useState(0)
 
   const  makeid = async (length) => {
     let result           = '';
@@ -31,13 +32,12 @@ const AudioRecorder = ({room}) => {
     const handleUpload = async () => {
       let name = await makeid(10)
           try {
-            // let file = new File([blob], `audio.mp3}`)
+            alert("You audio clip was submitted")
             const storageRef = await ref(storage, `/audio/${name}.mp3`);
             console.log("Ref: ",storageRef)
             const snapshot = await uploadBytes(storageRef, blob);
             console.log("Snap: ", snapshot);
             const url = await getDownloadURL(snapshot.ref);
-            console.log(url)
             socket.emit("send_audio", {url, room})
             return url
           } catch (err) {
@@ -75,11 +75,11 @@ const AudioRecorder = ({room}) => {
   return (
     <div className='response-boxes'>
       <button onClick={!isRecording ? startRecording : stopRecording} className={!isRecording ? "record" : "stop"}>{!isRecording? "Record" : "Stop"}</button>
-      <Timer active={isRecording}>
-      <Timecode className="enter-pin timer"/>
-      </Timer>
-    {audio ? <audio controls  src={audio}/>: <p>No audio has been recorded</p>}
-      <button onClick={handleUpload} className="enter-pin">Submit</button>
+      {isRecording ? <Timer active={isRecording}>
+      <Timecode className="enter-pin timer" format="H:?m:ss.S"/>
+      </Timer> : <div></div>}
+    {audio && !isRecording ? <audio controls  src={audio}/>: <p>Your audio will show up here</p>}
+      <button onClick={handleUpload} className="enter-pin enter">Submit</button>
     </div>
   )
 }

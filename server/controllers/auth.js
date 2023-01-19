@@ -28,7 +28,7 @@ module.exports = {
         let foundUser = await User.findOne({where: {username:username}})
 
         if (foundUser){
-            res.status(400).send('cannot create user')
+            res.status(400).send('User already exists')
         }else{
             const salt = bcrypt.genSaltSync(10)
             const hash = bcrypt.hashSync(password, salt)

@@ -6,6 +6,7 @@ const SignIn = () => {
    const [username, setUsername] = useState('')
    const [password, setPassword] = useState('')
    const [register, setRegister] = useState(true)
+   const [message, setMessage]=useState("")
 
    const authCtx = useContext(AuthContext)
    
@@ -31,6 +32,7 @@ const SignIn = () => {
             setPassword('')
             setUsername('')
             console.log(err)
+            setMessage(err.response.data)
         })
        console.log('submitHandler called')
 
@@ -77,6 +79,7 @@ const SignIn = () => {
                <button className='enter-pin'>
                    {register ? 'Sign Up' : 'Login'}
                </button>
+               {message}
            </form>
            </div>
            <button className='enter-pin'

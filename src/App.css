@@ -183,8 +183,10 @@ span{
 }
 
 .url{
-  font-size: larger;
+  font-size: x-large;
+  font-weight: bold;
 }
+
 
 @media (max-width: 500px){
   .home-page{

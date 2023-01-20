@@ -25,7 +25,7 @@ console.log(recordings)
 let recordingsDisplay = recordings.map(audio=>{
 
   
-    return <audio src={audio} controls/>
+    return <audio src={audio} controls className="chatterbox-audio"/>
  })
 console.log(recordingsDisplay)
     // return <audio src={`[${audio}]`} controls type="audio/webm"/>})

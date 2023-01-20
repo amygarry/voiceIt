@@ -182,6 +182,10 @@ span{
   cursor: pointer;
 }
 
+.url{
+  font-size: larger;
+}
+
 @media (max-width: 500px){
   .home-page{
     display: flex;

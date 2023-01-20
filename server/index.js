@@ -46,6 +46,9 @@ const {isAuthenticated} = require('./middleware/isAuthenticated')
 app.post('/register', register)
 app.post('/login', login)
 
+const {qrcode}=require('./controllers/getQRcode.js')
+app.get("/qr", qrcode)
+
 app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../build", 'index.html'))
 })

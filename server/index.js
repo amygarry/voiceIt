@@ -46,7 +46,7 @@ const {isAuthenticated} = require('./middleware/isAuthenticated')
 app.post('/register', register)
 app.post('/login', login)
 
-const {qrcode}=require('./controllers/getQRcode.js')
+const {qrcode}=require('./controllers/getQRcode')
 app.get("/qr", qrcode)
 
 app.get("/", function(req, res){

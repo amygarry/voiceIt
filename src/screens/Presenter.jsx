@@ -21,7 +21,7 @@ function PresenterScreen (){
         <MainQuestion pin={room}/>
         <div className="box"> 
         <div className="center">
-        <img src="/qr" className="response-boxes"/>
+        {/* <img src="/qr" className="response-boxes"/> */}
         <div className="response-boxes pin url">https://voice-it.herokuapp.com/</div>
         <div className="response-boxes pin">{room}</div>
         </div>
